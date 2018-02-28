@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="design.css">
+
+        <script type="text/javascript">
+            function submitFunc(){
+                
+                var x = document.getElementById("myForm");
+                var name = x.elements.namedItem("fullName").value;
+                var email = x.elements.namedItem("email").value;
+                var contact = x.elements.namedItem("contact").value;
+                var address1 =x.elements.namedItem("addr1").value;
+                var address2 =x.elements.namedItem("addr2").value;
+                var city = x.elements.namedItem("City").value;
+                var zip = x.elements.namedItem("Zip").value;
+                var oRadio = document.forms[0].elements["Gender"];
+ 
+                for(var i = 0; i < oRadio.length; i++)
+                {
+                    if(oRadio[i].checked)
+                       {
+                        var radio = oRadio[i].value;
+                    }
+                }
+                var selected_index = myForm.elements["State"].selectedIndex;
+ 
+                if(selected_index > 0)
+                {
+                    
+                    var selected_option_text = myForm.elements["State"].options[selected_index].text;
+                }
+ 
+  
+                
+               console.log("Name : "+name);
+               console.log("Email address : "+email);
+               console.log("Contact No : "+contact);
+               console.log("Gender : "+radio);
+               console.log("Address Line 1 :"+address1);
+               console.log("Address Line 2 :"+address2);
+               console.log("State : "+selected_option_text);
+               console.log("City :"+city);
+               console.log("Zip :"+zip);
+              
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <form id="myForm" ACTION="" METHOD="GET">
+            
+                <div class="form-group">
+                </br>
+                </br>
+                    <div class="row p-3 mb-2 bg-light">  
+                        <div class="col .text-primary text-center">
+                            <h1>Register Now!</h1>         
+                        </div>
+                        <div class="w-100"></div>
+                        <br>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <label for="Name" class="mrgnLabel1">Name</label>
+                            <input type="text" id="Name" name="fullName" class="form-control mrgn" placeholder="Enter your name">
+                        </div>
+                       
+                        <div class="col-md-4">
+                            <label for="emailAdd" class="mrgnLabel">Email</label>
+                            <input type="email" id="emailAdd" name="email" class="form-control" placeholder="Enter your email address">
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="w-100"></div>
+                        
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <label for="contactNo">Contact No.</label>
+                            <input type="text" id="contactNo" name="contact" class="form-control" placeholder="Enter your contact no">
+                        </div>
+                        <div class="col-md-4">    
+                            <label for="Gender" class="mrgnLabel1"> Gender  </label>
+                        </br>                
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Gender" id="radioFemale" value="Female">Female
+                                
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Gender" id="radioMale" value="Male">Male
+                                
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <label for="address1">Address Line 1</label>
+                            <textarea class="form-control" id="address1" rows="2" name="addr1"></textarea>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label for="address2" class="mrgnLabel">Address Line 2</label>
+                            <textarea class="form-control" id="address2" rows="2" name="addr2"></textarea>
+                        </div>
+            
+                        <div class="w-100"></div>
+                        
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity" name="City">
+                        </div>
+                        
+                        <div class=" col-md-2">
+                            <label for="inputState">State</label>
+                            <select id="inputState" name="State" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>Delhi</option>
+                                <option>Mumbai</option>
+                                <option>Bangalore</option>
+                                <option>Hyderabad</option>
+                                <option>Chennai</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">Zip</label>
+                            <input type="text" class="form-control" id="inputZip" name="Zip">
+                        </div>
+                        
+                        <div class="w-100"></div>
+                        
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">I accept the Terms and Conditions
+                                
+                            </div>
+                        </div>
+                        <div class="col"></div>
+
+                        <div class="w-100"></div>
+                        </br>
+                       
+                        <div class="col"></div>
+               
+                        <div class="col-md-2 text-center">
+                            <button type="button" class="btn btn-primary " onClick="submitFunc()" name="submit" value="Submit">Submit</button>
+                        </div>
+                        <div class="col-md-2 text-center">  
+                            <button type="reset" class="btn btn-primary">Reset</button>
+                            
+                        </div>
+                        <div class="col-md-2 text-center">   
+                            <button type="button" class="btn btn-primary">Back</button>
+                        </div>
+
+                        <div class="col"></div>
+                        
+                    </div>
+                </div>
+            </div>
+    
+        </form>
+    </div>
+    
+    </body>
+</html>
