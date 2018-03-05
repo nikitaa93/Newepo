@@ -21,13 +21,7 @@
                 let addOption = document.createElement("option");
                 addOption.text = selectArr[i];
                 select.add(addOption);
-                //ddOption = document.createElement("option");
-                //addOption.textContent = addEl;
-                //addOption.value = addEl;
-                //select.appendChild(addOption);
-                //select[selectLen] = new Option(selectArr[i], selectArr[i]);
-
-                //select.options.add(addOption,i);
+               
             }
         }
         function submitFunc(){
@@ -35,54 +29,35 @@
             event.preventDefault();
             let select = document.getElementById("outputDropdown");
             let selectLen = select.length;
-            
-    
-            let j;
-                for (i = 0; i < selectLen; i++) {
-                        selectArr[i] = select.options[i].text ;
-                }
-
-
-            if(selectLen==0){
-                selectArr = ["a","b","c"];
-                
-	        }
-            
-            
-            
-            
-            console.log(selectLen);
-            
-            
             let addElement = document.getElementById("addValue").value;            
             let delElement = document.getElementById("deleteValue").value;
-            console.log(delElement);
-            selectLen = document.getElementById("outputDropdown").length;
-            console.log(selectLen);
-            
+            let arrLen = selectArr.length;
+            console.log("Current array :");
+            for(i=0;i<arrLen;i++)
+                console.log(i +" : "+selectArr[i]);
             
             if(addElement.length!=0){
-                console.log(addElement);
+                console.log("Element to be added : "+addElement);
+                
                 selectArr.push(addElement);
                 let addOption = document.createElement("option");
                 addOption.text = addElement;
                 select.options.add(addOption,selectLen+1);
             }
-            
+            if(delElement.length!=0){
+                console.log("Element to be deleted : "+delElement);
                 for(i=0;i<selectLen;i++){
-                if(delElement == select.options[i].text){
-                    console.log(select.options[i].text);
-                    select.options.remove(i);
-                    break;
+                    if(delElement == select.options[i].text){
+                        select.options.remove(i);
+                        selectArr.splice(i-1, 1);
+                        break;
                     }
-                    
-                
-                    
+                }         
             }
-            
-            
-            
-            
+            console.log("Updated array :");
+            arrLen = selectArr.length;
+            for(i=0;i<arrLen;i++)
+                console.log(i +" : "+selectArr[i]);
         }
     </script>
     <body  onload="myFunction()">
